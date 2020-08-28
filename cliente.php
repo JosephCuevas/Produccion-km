@@ -65,9 +65,9 @@
                         <div class="conta-form">
                             <div class="row">
                                 <form method="post" class="form" action="crear_cliente.php">
-                                    <input type="input" name="id_cliente" placeholder="ID Cliente">
-                                    <input type="input" name="nombre" placeholder="Nombre de Cliente">
-                                    <input type="submit" name="generar_reporte">
+                                    <input class="input-group-text" type="text" name="id_cliente" placeholder="ID Cliente">
+                                    <input class="input-group-text" type="text" name="nombre" placeholder="Nombre de Cliente">
+                                    <input class="btn btn-outline-secondary btn-lg text-white" type="submit" name="crear_cliente">
                                 </form>
                             </div>
                         </div>
