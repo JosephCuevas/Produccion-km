@@ -7,16 +7,17 @@
      color: #fff;
 }
 
-.main-header{
+.main-back{
     position: relative;
-    background: url(../img/km.jpg);
+    background: url(../img/gkm.jpg);
     background-size: cover;
     min-height: 600px;
+    height: 92vh;
 }
 
 .background-overlay{
     position: absolute;
-    background: rgba(89, 91, 134, 0.7);
+    background: rgba(0, 0, 0, 0.7);
     top: 0;
     left: 0;
     width: 100%;

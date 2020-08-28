@@ -35,7 +35,7 @@
                   <a class="nav-link" href="#">Cliente</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Disposición</a>
+                  <a class="nav-link" href="index.php">Disposición</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Generar Orden</a>
@@ -45,51 +45,48 @@
         </div>
       </nav>
 
-    <!--HEADER -->
-    <header class="main-header">
-          <div class="background-overlay text-white py-5">
-              <div class="container">
-                  <div class="row">
-                    <div class="col-md-6 text-center justify-content-center align-self-center">
-                        <h1>Proceso de producción de KingMonster</h1>
-                        <p>En estos apartados encontraras los diferentes procesos en los que se encuentran las prendas para su producción.</p>
-                        <a href="#" class="btn btn-outline-secondary btn-lg text-white">
-                            Read More
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <!-- <img src="img/header.jpg" class="img-fluid d-none d-sm-block" alt=""> -->
-                    </div>
+      <div class="main-back">
+          <!--HEADER -->
+        <header class="main-header">
+              <div class="background-overlay text-white py-5">
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-md-6 text-center justify-content-center align-self-center">
+                            <h1>Proceso de producción de KingMonster</h1>
+                            <p>En estos apartados encontraras los diferentes procesos en los que se encuentran las prendas para su producción.</p>
+                            <a href="#" class="btn btn-outline-secondary btn-lg text-white">
+                                Read More
+                            </a>
+                        </div>
+                          <!-- Table -->
+                          <section class="col-md-6">
+                                <table class="table">
+                                    <tr class="bg-primary">
+                                      <th>ID_Orden</th>
+                                      <th>Nombre</th>
+                                      <th>Compra</th>
+                                      <th>Proceso</th>
+                                      <th>Estado</th>
+                                    </tr>
+                                    <?php
+                                    while ($registroDisposicion = $resDisposicion->fetch_array(MYSQLI_BOTH))
+                                    {
+                                      echo'<tr>
+                                        <td>'.$registroDisposicion['id_orden'].'</td>
+                                        <td>'.$registroDisposicion['nombre'].'</td>
+                                        <td>'.$registroDisposicion['compra'].'</td>
+                                        <td>'.$registroDisposicion['proceso'].'</td>
+                                        <td>'.$registroDisposicion['estado'].'</td>
+                                        </tr>';
+                                    }
+                                    ?>
+                                </table>
+                          </section> <!-- Close Table -->
+                      </div>
                   </div>
               </div>
-          </div>
-      </header>
-
-
-    <!-- Table -->
-    <section>
-			<table class="table">
-				<tr class="bg-primary">
-					<th>ID_Orden</th>
-					<th>Nombre</th>
-					<th>Compra</th>
-					<th>Proceso</th>
-					<th>Estado</th>
-				</tr>
-				<?php
-				while ($registroDisposicion = $resDisposicion->fetch_array(MYSQLI_BOTH))
-				{
-					echo'<tr>
-						 <td>'.$registroDisposicion['id_orden'].'</td>
-						 <td>'.$registroDisposicion['nombre'].'</td>
-						 <td>'.$registroDisposicion['compra'].'</td>
-						 <td>'.$registroDisposicion['proceso'].'</td>
-						 <td>'.$registroDisposicion['estado'].'</td>
-						 </tr>';
-				}
-				?>
-			</table>
-		</section>
+          </header>
+      </div>
 
 </body>
 </html>
