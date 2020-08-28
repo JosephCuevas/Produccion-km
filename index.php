@@ -58,8 +58,10 @@
                                 Read More
                             </a>
                         </div>
-                          <!-- Table -->
-                          <section class="col-md-6">
+                      </div>
+                      <div class="row">
+                        <!-- Table -->
+                        <section class="col-md-6">
                                 <table class="table">
                                     <tr class="bg-primary">
                                       <th>ID_Orden</th>
