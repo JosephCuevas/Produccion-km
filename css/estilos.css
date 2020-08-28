@@ -1,13 +1,16 @@
 
-body
-{
-
-}
-
 .conta-table {
 	margin-top: 10%;
 	margin-right: 2%;
 	margin-left: 2%;
+	text-align: center;
+}
+
+.conta-form {
+	margin-top: 5%;
+	margin-right: 2%;
+	margin-left: 10%;
+	margin-bottom: 3%;
 	text-align: center;
 }
 

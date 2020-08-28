@@ -62,6 +62,15 @@
                       </div>
 
                       <div class="conta-table">
+                        <div class="conta-form">
+                            <div class="row">
+                                <form method="post" class="form" action="crear_cliente.php">
+                                    <input type="input" name="id_cliente" placeholder="ID Cliente">
+                                    <input type="input" name="nombre" placeholder="Nombre de Cliente">
+                                    <input type="submit" name="generar_reporte">
+                                </form>
+                            </div>
+                        </div>
                         <div class="row">
                           <!-- Table -->
                           <section class="col-sm-12 text-center justify-content-center align-self-center">
