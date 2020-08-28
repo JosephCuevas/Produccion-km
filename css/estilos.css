@@ -4,26 +4,19 @@ body
 
 }
 
-header 
-{	
-
-	margin-top: 4%;
+.conta-table {
+	margin-top: 10%;
 	margin-right: 2%;
 	margin-left: 2%;
 	text-align: center;
-
 }
 
-section 
-{
-
+section {
 	margin-right: 2%;
 	margin-left: 2%;
 }
 
-.pad-basic
-
-{
+.pad-basic {
 padding:.5%; 
 	
 }
