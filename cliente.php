@@ -62,26 +62,35 @@
                       </div>
 
                       <div class="conta-table">
-                        <div class="conta-form">
+                        <div class="conta-form col-sm-12">
                             <div class="row">
                                 <form method="post" class="form" action="crear_cliente.php">
+                                    <input class="input-group-text" type="text" name="id_cliente" placeholder="Id_cliente">
                                     <input class="input-group-text" type="text" name="nombre" placeholder="Nombre de Cliente">
+                                    <input class="input-group-text" type="text" name="apellido_pat" placeholder="Apellido Paterno">
+                                    <input class="input-group-text" type="text" name="apellido_mat" placeholder="Apellido Materno">
                                     <input class="btn btn-outline-secondary btn-lg text-white" type="submit" name="crear_cliente">
                                 </form>
                             </div>
                         </div>
                         <div class="row">
                           <!-- Table -->
-                          <section class="col-sm-6 text-center justify-content-center align-self-center">
+                          <section class="col-sm-12 text-center justify-content-center align-self-center">
                                   <table class="table">
                                       <tr class="bg-primary">
+                                        <th>Id Cliente</th>
                                         <th>Nombre</th>
+                                        <th>Primer Apellido</th>
+                                        <th>Segundo Apellido</th>
                                       </tr>
                                       <?php
                                       while ($registroCliente = $resCliente->fetch_array(MYSQLI_BOTH))
                                       {
                                         echo'<tr>
+                                          <td>'.$registroCliente['id_cliente'].'</td>
                                           <td>'.$registroCliente['nombre'].'</td>
+                                          <td>'.$registroCliente['apellido_pat'].'</td>
+                                          <td>'.$registroCliente['apellido_mat'].'</td>
                                           </tr>';
                                       }
                                       ?>
