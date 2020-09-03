@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <!-- CUSTOME CSS -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
     <!--Navigation -->
@@ -47,32 +46,25 @@
       </nav>
 
       <div class="main-back">
-          <!--HEADER -->
-        <header class="main-header">
-              <div class="background-overlay text-white py-5">
+          <!--div main header -->
+        <div class="main-header">
+              <div class="background-overlay text-white">
                   <div class="container">
-                      <div class="row">
-                        <div class="col-sm-12 text-center justify-content-center align-self-center">
-                            <h1>Proceso de producción de KingMonster</h1>
-                            <p>En estos apartados encontraras los diferentes procesos en los que se encuentran las prendas para su producción.</p>
-                            <a href="#" class="btn btn-outline-secondary btn-lg text-white">
-                                Read More
-                            </a>
-                        </div>
-                      </div>
 
-                      <div class="conta-table">
                         <div class="conta-form col-sm-12">
                             <div class="row">
-                                <form method="post" class="form" action="crear_cliente.php">
-                                    <input class="input-group-text" type="text" name="id_cliente" placeholder="Id_cliente">
-                                    <input class="input-group-text" type="text" name="nombre" placeholder="Nombre de Cliente">
-                                    <input class="input-group-text" type="text" name="apellido_pat" placeholder="Apellido Paterno">
-                                    <input class="input-group-text" type="text" name="apellido_mat" placeholder="Apellido Materno">
-                                    <input class="btn btn-outline-secondary btn-lg text-white" type="submit" name="crear_cliente">
+                                <form method="post" class="form-group" action="crear_cliente.php">
+                                    <div class="input-group input-group-sm pt-3 justify-content-center"> 
+                                      <input class="form-control input-goup-text" type="text" name="id_cliente" placeholder="Id_cliente">
+                                      <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre de Cliente">
+                                      <input class="form-control input-goup-text" type="text" name="apellido_pat" placeholder="Apellido Paterno">
+                                      <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Apellido Materno">
+                                      <input class="btn btn-outline-secondary btn-sm text-white" type="submit" value="Crear" name="crear_cliente">
+                                    </div>
                                 </form>
                             </div>
                         </div>
+                      <div class="conta-table">
                         <div class="row">
                           <!-- Table -->
                           <section class="col-sm-12 text-center justify-content-center align-self-center">
@@ -100,7 +92,7 @@
                       </div>
                   </div>
               </div>
-          </header>
+          </div> <!-- main header-->
       </div>
 
 </body>
