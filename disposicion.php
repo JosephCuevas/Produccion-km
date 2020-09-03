@@ -1,10 +1,21 @@
 <?php
     ///// INCLUIR LA CONEXIÓN A LA BD /////////////////
     include('conexion.php');
+    include('crear_proceso.php');
 
     ///// CONSULTA A LA BASE DE DATOS /////////////////
     $disposicion="SELECT * FROM disposicion order by id_orden";
     $resDisposicion=$conexion->query($disposicion);
+    $idor="SELECT * FROM disposicion order by id_orden";
+    $resDisposicion_idor=$conexion->query($idor);
+    $cliente="SELECT * FROM cliente order by id_cliente";
+    $resCliente=$conexion->query($cliente);
+    $compra="SELECT * FROM compra order by id_compra";
+    $resCompra=$conexion->query($compra);
+    $proceso="SELECT * FROM proceso order by id_proceso";
+    $resProceso=$conexion->query($proceso);
+    $estado="SELECT * FROM estado order by id_estado";
+    $resEstado=$conexion->query($estado);
 
 ?>
 <!DOCTYPE html>
@@ -62,6 +73,39 @@
                       </div>
 
                       <div class="conta-table">
+                        <div class="conta-form">
+                            <div class="row">
+                                <form method="post" class="form-group" action="crear_proceso.php">
+                                    <select name="id_orden">
+                                      <!-- <option value="1"></option> -->
+                                      <?php
+                                          while ($valoresDisposicion = mysqli_fetch_array($resDisposicion_idor)) {
+                                            echo '<option value="'.$valoresDisposicion[id_orden].'">'.$valoresDisposicion[id_orden].'</option>';
+                                          }
+                                        ?>                                    
+                                    </select>
+                                    <select name="proceso">
+                                      <!-- <option value="1"></option> -->
+                                      <?php
+                                          while ($valoresProceso = mysqli_fetch_array($resProceso)) {
+                                            echo '<option value="'.$valoresProceso[proceso].'">'.$valoresProceso[proceso].'</option>';
+                                          }
+                                        ?>                                    
+                                    </select>
+                                    <select name="estado">
+                                      <!-- <option value="1">Seleccione:</option> -->
+                                      <?php
+                                          while ($valoresEstado = mysqli_fetch_array($resEstado)) {
+                                            echo '<option value="'.$valoresEstado[estado].'">'.$valoresEstado[estado].'</option>';
+                                          }
+                                        ?>                                    
+                                    </select>
+                                    <input class="btn btn-outline-secondary btn-lg text-white" type="submit" name="crear_proceso">
+                                </form>
+                            </div>
+                        </div>
+
+                      <!-- <div class="conta-table"> -->
                         <div class="row">
                           <!-- Table -->
                           <section class="col-sm-12 text-center justify-content-center align-self-center">
@@ -72,6 +116,7 @@
                                         <th>Compra</th>
                                         <th>Proceso</th>
                                         <th>Estado</th>
+                                        <th>Fecha</th>
                                       </tr>
                                       <?php
                                       while ($registroDisposicion = $resDisposicion->fetch_array(MYSQLI_BOTH))
@@ -82,13 +127,14 @@
                                           <td>'.$registroDisposicion['compra'].'</td>
                                           <td>'.$registroDisposicion['proceso'].'</td>
                                           <td>'.$registroDisposicion['estado'].'</td>
+                                          <td>'.$registroDisposicion['fecha'].'</td>
                                           </tr>';
                                       }
                                       ?>
                                   </table>
                             </section> <!-- Close Table -->
                         </div> <!--Row Table -->
-                      </div>
+                      <!-- </div> FIN CONTA TABLE -->
                   </div>
               </div>
           </header>

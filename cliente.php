@@ -65,7 +65,6 @@
                         <div class="conta-form">
                             <div class="row">
                                 <form method="post" class="form" action="crear_cliente.php">
-                                    <input class="input-group-text" type="text" name="id_cliente" placeholder="ID Cliente">
                                     <input class="input-group-text" type="text" name="nombre" placeholder="Nombre de Cliente">
                                     <input class="btn btn-outline-secondary btn-lg text-white" type="submit" name="crear_cliente">
                                 </form>
@@ -73,17 +72,15 @@
                         </div>
                         <div class="row">
                           <!-- Table -->
-                          <section class="col-sm-12 text-center justify-content-center align-self-center">
+                          <section class="col-sm-6 text-center justify-content-center align-self-center">
                                   <table class="table">
                                       <tr class="bg-primary">
-                                        <th>ID_Cliente</th>
                                         <th>Nombre</th>
                                       </tr>
                                       <?php
                                       while ($registroCliente = $resCliente->fetch_array(MYSQLI_BOTH))
                                       {
                                         echo'<tr>
-                                          <td>'.$registroCliente['id_cliente'].'</td>
                                           <td>'.$registroCliente['nombre'].'</td>
                                           </tr>';
                                       }
