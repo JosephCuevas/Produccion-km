@@ -31,6 +31,11 @@
     border-radius: 0;
 }
 
-.team, footer {
-    background: #30336b;
+.conta-form input {
+    border-radius: 5px;
+}
+
+.posi {
+    display: flex;
+    justify-content: space-between;
 }

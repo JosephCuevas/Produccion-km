@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" />
     <!-- CUSTOME CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/estilos.css">
@@ -60,55 +61,55 @@
       <div class="main-back">
           <!--HEADER -->
         <header class="main-header">
-              <div class="background-overlay text-white py-5">
+              <div class="background-overlay text-white py-3">
                   <div class="container">
-                      <div class="row">
-                        <div class="col-sm-12 text-center justify-content-center align-self-center">
-                            <h1>Proceso de producción de KingMonster</h1>
-                            <p>En estos apartados encontraras los diferentes procesos en los que se encuentran las prendas para su producción.</p>
-                            <a href="#" class="btn btn-outline-secondary btn-lg text-white">
-                                Read More
-                            </a>
-                        </div>
-                      </div>
-
-                      <div class="conta-table">
-                        <div class="conta-form">
-                            <div class="row">
+                            <div class="row posi">
                                 <form method="post" class="form-group" action="crear_proceso.php">
-                                    <select name="id_orden">
-                                      <!-- <option value="1"></option> -->
+                                  <div class="input-group mb-3  ml-5">
+                                    <div class="input-group-prepend">
+                                      <label for="inputgroup1" class="input-group-text">Id Orden</label>
+                                    </div>
+                                    <select class="custom-select" name="id_orden" id="inputgroup1">
                                       <?php
                                           while ($valoresDisposicion = mysqli_fetch_array($resDisposicion_idor)) {
                                             echo '<option value="'.$valoresDisposicion[id_orden].'">'.$valoresDisposicion[id_orden].'</option>';
                                           }
                                         ?>                                    
                                     </select>
-                                    <select name="proceso">
-                                      <!-- <option value="1"></option> -->
-                                      <?php
-                                          while ($valoresProceso = mysqli_fetch_array($resProceso)) {
-                                            echo '<option value="'.$valoresProceso[proceso].'">'.$valoresProceso[proceso].'</option>';
-                                          }
-                                        ?>                                    
-                                    </select>
-                                    <select name="estado">
-                                      <!-- <option value="1">Seleccione:</option> -->
-                                      <?php
-                                          while ($valoresEstado = mysqli_fetch_array($resEstado)) {
-                                            echo '<option value="'.$valoresEstado[estado].'">'.$valoresEstado[estado].'</option>';
-                                          }
-                                        ?>                                    
-                                    </select>
-                                    <input class="btn btn-outline-secondary btn-lg text-white" type="submit" name="crear_proceso">
+                                  </div> 
+                                    
+                                    <div class="input-group mb-3 ml-5">
+                                      <div class="input-group-prepend">
+                                        <label for="inputgroup2" class="input-group-text">Proceso</label>
+                                      </div>
+                                      <select class="custom-select" name="proceso" id="inputgroup2">
+                                        <?php
+                                            while ($valoresProceso = mysqli_fetch_array($resProceso)) {
+                                              echo '<option value="'.$valoresProceso[proceso].'">'.$valoresProceso[proceso].'</option>';
+                                            }
+                                          ?>                                    
+                                      </select>
+                                    </div> 
+                                    
+                                    <div class="input-group mb-3 ml-5">
+                                      <div class="input-group-prepend">
+                                        <label for="inputgroup3" class="input-group-text">Estado</label>
+                                      </div>
+                                      <select class="custom-select" name="estado" id="inputgroup3">
+                                        <?php
+                                            while ($valoresEstado = mysqli_fetch_array($resEstado)) {
+                                              echo '<option value="'.$valoresEstado[estado].'">'.$valoresEstado[estado].'</option>';
+                                            }
+                                          ?>                                    
+                                      </select>
+                                    </div> 
+                                    
+                                    <input class="btn btn-outline-secondary btn-sm text-white ml-5" type="submit" value="Actualizar" name="crear_proceso">
                                 </form>
                             </div>
-                        </div>
-
-                      <!-- <div class="conta-table"> -->
                         <div class="row">
                           <!-- Table -->
-                          <section class="col-sm-12 text-center justify-content-center align-self-center">
+                          <section class="table table-sm col-sm-12 text-center justify-content-center align-self-center">
                                   <table class="table">
                                       <tr class="bg-primary">
                                         <th>ID_Orden</th>
@@ -134,7 +135,6 @@
                                   </table>
                             </section> <!-- Close Table -->
                         </div> <!--Row Table -->
-                      <!-- </div> FIN CONTA TABLE -->
                   </div>
               </div>
           </header>

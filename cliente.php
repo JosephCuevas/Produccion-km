@@ -54,11 +54,11 @@
                         <div class="conta-form col-sm-12">
                             <div class="row">
                                 <form method="post" class="form-group" action="crear_cliente.php">
-                                    <div class="input-group input-group-sm pt-3 justify-content-center"> 
-                                      <input class="form-control input-goup-text" type="text" name="id_cliente" placeholder="Id_cliente">
-                                      <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre de Cliente">
-                                      <input class="form-control input-goup-text" type="text" name="apellido_pat" placeholder="Apellido Paterno">
-                                      <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Apellido Materno">
+                                    <div class="input-group pt-3 justify-content-center"> 
+                                      <input class="form-control pl-3 input-goup-text" type="text" name="id_cliente" placeholder="Id cliente">
+                                      <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre">
+                                      <input class="form-control input-goup-text" type="text" name="apellido_pat" placeholder="Primer Apellido">
+                                      <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Segundo Apellido">
                                       <input class="btn btn-outline-secondary btn-sm text-white" type="submit" value="Crear" name="crear_cliente">
                                     </div>
                                 </form>
@@ -67,7 +67,7 @@
                       <div class="conta-table">
                         <div class="row">
                           <!-- Table -->
-                          <section class="col-sm-12 text-center justify-content-center align-self-center">
+                          <section class="table table-sm col-sm-12 text-center justify-content-center align-self-center">
                                   <table class="table">
                                       <tr class="bg-primary">
                                         <th>Id Cliente</th>
