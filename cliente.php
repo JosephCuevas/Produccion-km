@@ -55,11 +55,10 @@
                             <div class="row">
                                 <form method="post" class="form-group" action="generar_orden.php">
                                     <div class="input-group pt-3 justify-content-center"> 
-                                        <input class="form-control pl-3 input-goup-text" type="text" name="id_cliente" placeholder="Id cliente">
                                         <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre">
                                         <input class="form-control input-goup-text" type="text" name="apellido_pat" placeholder="Primer Apellido">
                                         <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Segundo Apellido">
-                                        <input class="btn btn-outline-secondary btn-sm text-white" type="submit" value="Crear" name="crear_cliente">
+                                        <input class="btn btn-outline-secondary btn-sm text-white pl-2" type="submit" value="Crear" name="crear_cliente">
                                     </div>
                                 </form>
                             </div>
@@ -70,7 +69,6 @@
                           <section class="table table-sm col-sm-12 text-center justify-content-center align-self-center">
                                   <table class="table">
                                       <tr class="bg-primary">
-                                        <th>Id Cliente</th>
                                         <th>Nombre</th>
                                         <th>Primer Apellido</th>
                                         <th>Segundo Apellido</th>
@@ -79,7 +77,6 @@
                                       while ($registroCliente = $resCliente->fetch_array(MYSQLI_BOTH))
                                       {
                                         echo'<tr>
-                                          <td>'.$registroCliente['id_cliente'].'</td>
                                           <td>'.$registroCliente['nombre'].'</td>
                                           <td>'.$registroCliente['apellido_pat'].'</td>
                                           <td>'.$registroCliente['apellido_mat'].'</td>
