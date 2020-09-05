@@ -38,7 +38,7 @@
                   <a class="nav-link" href="disposicion.php">Disposición</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Generar Orden</a>
+                  <a class="nav-link" href="ordenes.php">Generar Orden</a>
                 </li>
               </ul>
             </div>
@@ -53,13 +53,13 @@
 
                         <div class="conta-form col-sm-12">
                             <div class="row">
-                                <form method="post" class="form-group" action="crear_cliente.php">
+                                <form method="post" class="form-group" action="generar_orden.php">
                                     <div class="input-group pt-3 justify-content-center"> 
-                                      <input class="form-control pl-3 input-goup-text" type="text" name="id_cliente" placeholder="Id cliente">
-                                      <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre">
-                                      <input class="form-control input-goup-text" type="text" name="apellido_pat" placeholder="Primer Apellido">
-                                      <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Segundo Apellido">
-                                      <input class="btn btn-outline-secondary btn-sm text-white" type="submit" value="Crear" name="crear_cliente">
+                                        <input class="form-control pl-3 input-goup-text" type="text" name="id_cliente" placeholder="Id cliente">
+                                        <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre">
+                                        <input class="form-control input-goup-text" type="text" name="apellido_pat" placeholder="Primer Apellido">
+                                        <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Segundo Apellido">
+                                        <input class="btn btn-outline-secondary btn-sm text-white" type="submit" value="Crear" name="crear_cliente">
                                     </div>
                                 </form>
                             </div>
