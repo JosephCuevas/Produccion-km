@@ -5,6 +5,12 @@
     ///// CONSULTA A LA BASE DE DATOS /////////////////
     $orden="SELECT * FROM orden order by id_orden";
     $resOrden=$conexion->query($orden);
+    $diseno="SELECT * FROM diseno order by id_diseno";
+    $resDiseno=$conexion->query($diseno);
+    $prenda="SELECT * FROM tipo_prenda order by id_prenda";
+    $resTipo_prenda=$conexion->query($prenda);
+    $compra="SELECT * FROM compra order by id_compra";
+    $resCompra=$conexion->query($compra);
 
 ?>
 <!DOCTYPE html>
@@ -55,12 +61,46 @@
                             <div class="row">
                                 <form method="post" class="form-group" action="crear_cliente.php">
                                     <div class="input-group pt-3 justify-content-center"> 
-                                        <input class="form-control pl-3 input-goup-text" type="text" name="id_cliente" placeholder="Id orden">
                                         <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre">
-                                        <input class="form-control input-goup-text" type="text" name="apellido_pat" placeholder="Diseño">
-                                        <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Tipo Prenda">
-                                        <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Cantidad">
-                                        <input class="form-control input-goup-text" type="text" name="apellido_mat" placeholder="Compra">
+                                        
+                                        <div class="input-group mb-3 justify-content-center ilign-self-center col-sm-12">
+                                          <div class="input-group-prepend">
+                                            <label for="inputgroup1" class="input-group-text">Diseño</label>
+                                          </div>
+                                          <select class="custom-select" name="diseno" id="inputgroup1">
+                                            <?php
+                                                while ($valoresDiseno = mysqli_fetch_array($resDiseno)) {
+                                                  echo '<option value="'.$valoresDiseno[id_diseno].'">'.$valoresDiseno[diseno].'</option>';
+                                                }
+                                              ?>                                    
+                                        </select>
+                                        
+                                        <div class="input-group mb-3 justify-content-center ilign-self-center col-sm-12">
+                                          <div class="input-group-prepend">
+                                            <label for="inputgroup2" class="input-group-text">Tipo de Prenda</label>
+                                          </div>
+                                          <select class="custom-select" name="tipo_prenda" id="inputgroup2">
+                                            <?php
+                                                while ($valoresTipo_prenda = mysqli_fetch_array($resTipo_prenda)) {
+                                                  echo '<option value="'.$valoresTipo_prenda[id_prenda].'">'.$valoresTipo_prenda[tipo_prenda].'</option>';
+                                                }
+                                              ?>                                    
+                                        </select>
+
+                                        <input class="form-control input-goup-text" type="text" name="cantidad" placeholder="Cantidad">
+
+                                        <div class="input-group mb-3 justify-content-center ilign-self-center col-sm-12">
+                                          <div class="input-group-prepend">
+                                            <label for="inputgroup3" class="input-group-text">Compra</label>
+                                          </div>
+                                          <select class="custom-select" name="compra" id="inputgroup3">
+                                            <?php
+                                                while ($valoresCompra = mysqli_fetch_array($resCompra)) {
+                                                  echo '<option value="'.$valoresCompra[id_compra].'">'.$valoresCompra[compra].'</option>';
+                                                }
+                                              ?>                                    
+                                        </select>
+                                        
                                         <input class="btn btn-outline-secondary btn-sm text-white" type="submit" value="Crear" name="generar_orden">
                                     </div>
                                 </form>
