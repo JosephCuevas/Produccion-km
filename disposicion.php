@@ -51,7 +51,7 @@
                   <a class="nav-link" href="disposicion.php">Disposición</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Generar Orden</a>
+                  <a class="nav-link" href="ordenes.php">Generar Orden</a>
                 </li>
               </ul>
             </div>
@@ -65,7 +65,7 @@
                   <div class="container">
                             <div class="row posi">
                                 <form method="post" class="form-group" action="crear_proceso.php">
-                                  <div class="input-group mb-3  ml-5">
+                                  <div class="input-group mb-3 justify-content-center ilign-self-center col-sm-12">
                                     <div class="input-group-prepend">
                                       <label for="inputgroup1" class="input-group-text">Id Orden</label>
                                     </div>
@@ -76,10 +76,8 @@
                                           }
                                         ?>                                    
                                     </select>
-                                  </div> 
-                                    
-                                    <div class="input-group mb-3 ml-5">
-                                      <div class="input-group-prepend">
+
+                                      <div class="input-group-prepend ml-3">
                                         <label for="inputgroup2" class="input-group-text">Proceso</label>
                                       </div>
                                       <select class="custom-select" name="proceso" id="inputgroup2">
@@ -89,10 +87,8 @@
                                             }
                                           ?>                                    
                                       </select>
-                                    </div> 
-                                    
-                                    <div class="input-group mb-3 ml-5">
-                                      <div class="input-group-prepend">
+
+                                      <div class="input-group-prepend ml-3">
                                         <label for="inputgroup3" class="input-group-text">Estado</label>
                                       </div>
                                       <select class="custom-select" name="estado" id="inputgroup3">
@@ -102,9 +98,9 @@
                                             }
                                           ?>                                    
                                       </select>
-                                    </div> 
-                                    
-                                    <input class="btn btn-outline-secondary btn-sm text-white ml-5" type="submit" value="Actualizar" name="crear_proceso">
+
+                                    <input class="btn btn-outline-secondary btn-sm text-white ml-3" type="submit" value="Actualizar" name="crear_proceso">
+                                  </div>
                                 </form>
                             </div>
                         <div class="row">
