@@ -143,5 +143,8 @@
           </div> <!-- main header-->
       </div>
 
+      <!-- SCRIPT -->
+      <script src="main.js"></script>
+
 </body>
 </html>
