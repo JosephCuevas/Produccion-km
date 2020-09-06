@@ -83,7 +83,7 @@
                                       <select class="custom-select" name="proceso" id="inputgroup2">
                                         <?php
                                             while ($valoresProceso = mysqli_fetch_array($resProceso)) {
-                                              echo '<option value="'.$valoresProceso[proceso].'">'.$valoresProceso[proceso].'</option>';
+                                              echo '<option value="'.$valoresProceso[id_proceso].'">'.$valoresProceso[proceso].'</option>';
                                             }
                                           ?>                                    
                                       </select>
@@ -94,7 +94,7 @@
                                       <select class="custom-select" name="estado" id="inputgroup3">
                                         <?php
                                             while ($valoresEstado = mysqli_fetch_array($resEstado)) {
-                                              echo '<option value="'.$valoresEstado[estado].'">'.$valoresEstado[estado].'</option>';
+                                              echo '<option value="'.$valoresEstado[id_estado].'">'.$valoresEstado[estado].'</option>';
                                             }
                                           ?>                                    
                                       </select>
