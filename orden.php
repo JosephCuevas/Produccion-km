@@ -1,9 +1,10 @@
-
 <?php
     ////////////////// CONEXION A LA BASE DE DATOS //////////////////
     include('conexion.php');
 
     ///// CONSULTA A LA BASE DE DATOS /////////////////
+    $nombres="SELECT * FROM cliente order by id_cliente";
+    $resNombre=$conexion->query($nombres);
     $orden="SELECT * FROM orden order by id_orden";
     $resOrden=$conexion->query($orden);
     $diseno="SELECT * FROM diseno order by id_diseno";
@@ -63,41 +64,63 @@
               <div class="background-overlay text-white">
                   <div class="container">
 
-                    <div class="conta-form col-sm-12">
+                    <div class="conta-form col-sm-12 pb-3">
                         <div class="row">
                             <div>
                                 <form method="post" class="form-group">
                                     <h3 class="text-center pad-basic no-btm">Crear orden</h3>
+                                                
+                                        <select class="custom-select" name="nombre[]">
+                                            <?php
+                                                 while ($valoresNombre = mysqli_fetch_array($resNombre)) {
+                                                    echo '<option value="'.$valoresNombre[id_cliente].'">'.$valoresNombre[nombre].'</option>';
+                                                 }
+                                            ?>                                    
+                                        <select>                 
+                                        <select class="custom-select" name="tipo_prenda[]">
+                                            <?php
+                                                 while ($valoresCompra = mysqli_fetch_array($resCompra)) {
+                                                    echo '<option value="'.$valoresCompra[id_compra].'">'.$valoresCompra[compra].'</option>';
+                                                 }
+                                            ?>                                    
+                                        <select>                 
+                                                    
+
                                         <table class="table table-sm"  id="tabla">
                                             <tr class="row col-sm-12">
-                                                
-                                                
-                                                <div class="row">
-                                                <div class="input-group input-group-sm">
-                                                    <td><input required class="form-control input-goup-text" name="id_orden[]" placeholder="ID Orden"/></td>
-                                                </div>
 
-                                                    <td><input required class="form-control input-goup-text" name="nombre[]" placeholder="Nombre"/></td>
+                                                    <td>
+                                                        <select class="custom-select" name="diseno[]" id="inputgroup1">
+                                                            <?php
+                                                                while ($valoresDiseno = mysqli_fetch_array($resDiseno)) {
+                                                                echo '<option value="'.$valoresDiseno[id_diseno].'">'.$valoresDiseno[diseno].'</option>';
+                                                                }
+                                                            ?>                                    
+                                                        </select>
+                                                    </td>
 
-                                                    <td><input required class="form-control input-goup-text" name="diseno[]" placeholder="Diseño"/></td>
-                                                </div>
-                                                <div class="row">
-
-                                                    <td><input required class="form-control input-goup-text" name="tipo_prenda[]" placeholder="Tipo Prenda"/></td>
+                                                    <td>
+                                                        <select class="custom-select" name="tipo_prenda[]" id="inputgroup2">
+                                                            <?php
+                                                                while ($valoresTipo_prenda = mysqli_fetch_array($resTipo_prenda)) {
+                                                                echo '<option value="'.$valoresTipo_prenda[id_prenda].'">'.$valoresTipo_prenda[tipo_prenda].'</option>';
+                                                                }
+                                                            ?>                                    
+                                                        </select>
+                                                    </td>
 
                                                     <td><input required class="form-control input-goup-text" name="cantidad[]" placeholder="Cantidad"/></td>
 
-                                                    <td><input required class="form-control input-goup-text" name="compra[]" placeholder="Compra"/></td>
-                                                <td class="eliminar"><input type="button" class="btn btn-outline-secondary btn-sm text-white" value="Menos -"/></td>
-                                                </div>
-                                                
+                                                    <td class="eliminar">
+                                                        <input type="button" class="btn btn-outline-secondary btn-sm text-white" value="x"/>
+                                                    </td>
                                             </tr>
                                         </table>
-
-                                            <div class="btn-der">
-                                                <input type="submit" name="insertar" value="Insertar Alumno" class="btn btn-outline-secondary btn-sm text-white"/>
-                                                <button id="adicional" name="adicional" type="button" class="btn btn-outline-secondary btn-sm text-white"> Más + </button>
-                                            </div>
+                                        
+                                        <div class="float-right">
+                                            <input type="submit" name="insertar" value="Generar Orden" class="btn btn-outline-secondary btn-sm text-white"/>
+                                            <button id="adicional" name="adicional" type="button" class="btn btn-outline-secondary btn-sm text-white"> Más + </button>
+                                        </div>
                                 </form>
                             </div>
                         </div>
@@ -105,7 +128,7 @@
 
 
 
-                    <section>
+                    <section class="table table-sm justify-content-center">
                         <table class="table">
                             <tr class="">
                                 <th>Id Orden</th>
