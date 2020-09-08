@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-09-2020 a las 22:41:33
--- Versión del servidor: 10.4.10-MariaDB
--- Versión de PHP: 7.3.12
+-- Tiempo de generación: 07-09-2020 a las 04:13:25
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,6 +65,15 @@ CREATE TABLE `compra` (
   `compra` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `compra`
+--
+
+INSERT INTO `compra` (`id_compra`, `compra`) VALUES
+(4, 'Website'),
+(5, 'Mercado Libre - Monster'),
+(6, 'Mercado Libre - XGOGO');
+
 -- --------------------------------------------------------
 
 --
@@ -75,6 +84,14 @@ CREATE TABLE `diseno` (
   `id_diseno` int(11) NOT NULL,
   `diseno` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `diseno`
+--
+
+INSERT INTO `diseno` (`id_diseno`, `diseno`) VALUES
+(2, 'Cthulhu'),
+(3, 'Cobra Kai');
 
 -- --------------------------------------------------------
 
@@ -103,6 +120,14 @@ CREATE TABLE `estado` (
   `estado` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `estado`) VALUES
+(3, 'En espera'),
+(4, 'Enviado');
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +155,17 @@ CREATE TABLE `proceso` (
   `proceso` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `proceso`
+--
+
+INSERT INTO `proceso` (`id_proceso`, `proceso`) VALUES
+(6, 'Tienda'),
+(7, 'Almacen'),
+(8, 'Producto'),
+(9, 'Serigrafia'),
+(10, 'Terminado');
+
 -- --------------------------------------------------------
 
 --
@@ -138,9 +174,16 @@ CREATE TABLE `proceso` (
 
 CREATE TABLE `tipo_prenda` (
   `id_prenda` int(11) NOT NULL,
-  `tipo_prenda` varchar(250) NOT NULL,
-  `cantidad` int(11) NOT NULL
+  `tipo_prenda` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_prenda`
+--
+
+INSERT INTO `tipo_prenda` (`id_prenda`, `tipo_prenda`) VALUES
+(5, 'Playera'),
+(6, 'Tank Top');
 
 --
 -- Índices para tablas volcadas
@@ -209,8 +252,7 @@ ALTER TABLE `proceso`
 -- Indices de la tabla `tipo_prenda`
 --
 ALTER TABLE `tipo_prenda`
-  ADD PRIMARY KEY (`id_prenda`),
-  ADD UNIQUE KEY `cantidad` (`cantidad`);
+  ADD PRIMARY KEY (`id_prenda`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -232,13 +274,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `diseno`
 --
 ALTER TABLE `diseno`
-  MODIFY `id_diseno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_diseno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `disposicion`
@@ -250,7 +292,7 @@ ALTER TABLE `disposicion`
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `orden`
@@ -262,13 +304,13 @@ ALTER TABLE `orden`
 -- AUTO_INCREMENT de la tabla `proceso`
 --
 ALTER TABLE `proceso`
-  MODIFY `id_proceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_proceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_prenda`
 --
 ALTER TABLE `tipo_prenda`
-  MODIFY `id_prenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -281,7 +323,8 @@ ALTER TABLE `disposicion`
   ADD CONSTRAINT `disposicion_ibfk_1` FOREIGN KEY (`nombre`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `disposicion_ibfk_2` FOREIGN KEY (`id_orden`) REFERENCES `orden` (`id_orden`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `disposicion_ibfk_3` FOREIGN KEY (`estado`) REFERENCES `estado` (`id_estado`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `disposicion_ibfk_4` FOREIGN KEY (`proceso`) REFERENCES `proceso` (`id_proceso`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `disposicion_ibfk_4` FOREIGN KEY (`proceso`) REFERENCES `proceso` (`id_proceso`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `disposicion_ibfk_5` FOREIGN KEY (`compra`) REFERENCES `orden` (`compra`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `orden`
@@ -292,12 +335,6 @@ ALTER TABLE `orden`
   ADD CONSTRAINT `orden_ibfk_3` FOREIGN KEY (`tipo_prenda`) REFERENCES `tipo_prenda` (`id_prenda`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `orden_ibfk_4` FOREIGN KEY (`compra`) REFERENCES `compra` (`id_compra`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `orden_ibfk_5` FOREIGN KEY (`cantidad`) REFERENCES `cantidad` (`id_cantidad`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tipo_prenda`
---
-ALTER TABLE `tipo_prenda`
-  ADD CONSTRAINT `tipo_prenda_ibfk_1` FOREIGN KEY (`cantidad`) REFERENCES `cantidad` (`id_cantidad`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

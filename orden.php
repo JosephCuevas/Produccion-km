@@ -64,7 +64,7 @@
               <div class="background-overlay text-white">
                   <div class="container">
 
-                    <div class="conta-form col-sm-12 pb-3">
+                    <div class="conta-form col-sm-12 pb-3 col-center">
                         <div class="row">
                             <div>
                                 <form method="post" class="form-group">
