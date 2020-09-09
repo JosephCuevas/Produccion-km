@@ -51,7 +51,7 @@
                   <a class="nav-link" href="disposicion.php">Disposición</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="ordenes.php">Generar Orden</a>
+                  <a class="nav-link" href="orden.php">Generar Orden</a>
                 </li>
               </ul>
             </div>
