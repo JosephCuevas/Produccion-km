@@ -2,20 +2,19 @@
     color: #fff;
 }
 .navbar{
-    box-shadow: 2px 2px 5px #000;
-    opacity: .9;
+    background-color: transparent !important;
 }
 
 .navbar .navbar-item .nav-link{
      color: #fff;
 }
 
-.main-back{
+body{
     position: relative;
     background-image: url(../img/gkm.jpg);
     background-size: cover;
     min-height: 600px;
-    height: 92vh;
+    height: 100vh;
 }
 
 .background-overlay{
