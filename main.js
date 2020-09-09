@@ -10,4 +10,7 @@ $(function(){
         $(parent).remove();
     });
 });
-    		
+
+$(document).ready(function() {
+    $('#tab').DataTable();
+} );

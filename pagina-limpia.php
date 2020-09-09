@@ -1,24 +1,17 @@
-<?php
-    ////////////////// CONEXION A LA BASE DE DATOS //////////////////
-    include('conexion.php');
-
-    $orden="SELECT * FROM orden order by id_orden";
-    $resOrden=$conexion->query($orden);
-
-?>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proceso Produccion</title>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="cdn/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <!-- CUSTOME CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
 </head>
 
 <body>
@@ -57,36 +50,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </nav> <!-- NAVEGACIÓN -->
-
-                    <!-- TABLES -->
-                    <section class="">
-                        <table class="table table-striped table-bordered text-white" style="width:100%" id="tab">
-                          <thead>
-                            <tr class="">
-                              <th>Id Orden</th>
-                              <th>Nombre</th>
-                              <th>Id Elemento</th>
-                              <th>Compra</th>
-                              <th>Fecha</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php
-                                while($registroOrden = $resOrden->fetch_array( MYSQLI_BOTH)) 
-                                {
-                                  echo '<tr>
-                                  <td>'.$registroOrden['id_orden'].'</td>
-                                  <td>'.$registroOrden['nombre'].'</td>
-                                  <td>'.$registroOrden['id_elemen'].'</td>
-                                  <td>'.$registroOrden['compra'].'</td>
-                                  <td>'.$registroOrden['fecha'].'</td>
-                                  </tr>';
-                                }
-                                ?>
-                          </tbody>
-                        </table>
-                    </section>
+                    </nav>
 
                 </div> <!-- CONTAINER -->
             </div> <!-- BACKGROUND OVERLAY -->
@@ -94,14 +58,8 @@
     </div> <!-- MAIN BACK -->
 
     <!-- SCRIPTS -->
-    <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="cdn/jquery/jquery-3.3.1.min.js"></script>
-    <script src="cdn/popper/popper.min.js"></script>
-    <script src="cdn/bootstrap/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
-    <!-- bootstrap -->
-
-    <!-- datatables -->
-    <script type="text/javascript" src="cdn/datatables/datatables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
