@@ -51,8 +51,13 @@
                             </button>
                             <div class="collapse navbar-collapse nav nav-tabs" id="navbarNav">
                                 <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="cliente.php">Cliente</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+                                            role="button" aria-haspopup="true" aria-expanded="false">Cliente</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="cliente.php">Agregar Cliente</a>
+                                            <a class="dropdown-item" href="clientes.php">Lista de Clientes</a>
+                                        </div>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="disposicion.php">Disposición</a>
