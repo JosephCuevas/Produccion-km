@@ -9,7 +9,7 @@
     $resOrden=$conexion->query($orden);
     $diseno="SELECT * FROM diseno order by id_diseno";
     $resDiseno=$conexion->query($diseno);
-    $prenda="SELECT * FROM tipo_prenda order by id_prenda";
+    $prenda="SELECT * FROM prenda order by id_prenda";
     $resTipo_prenda=$conexion->query($prenda);
     $compra="SELECT * FROM compra order by id_compra";
     $resCompra=$conexion->query($compra);

@@ -2,7 +2,7 @@
     $host="localhost";
     $usuario="root";
     $contraseña="";
-    $base="proceso_produccion";
+    $base="produccion_km";
 
     $conexion= new mysqli($host, $usuario, $contraseña, $base);
     if ($conexion -> connect_errno){
