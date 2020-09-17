@@ -13,6 +13,10 @@
     $resTipo_prenda=$conexion->query($prenda);
     $compra="SELECT * FROM compra order by id_compra";
     $resCompra=$conexion->query($compra);
+    $estado="SELECT * FROM estado order by id_estado";
+    $resEstado=$conexion->query($estado);
+    $proceso="SELECT * FROM proceso order by id_proceso";
+    $resProceso=$conexion->query($proceso);
 
 ?>
 
@@ -74,26 +78,120 @@
                             </div>
                         </div>
                     </nav>
+                    <!-- ============================= CARDS  =============================== -->
+                    <div class="alinarcard">
+                    <div class="d-flex justify-content-around h-35">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="post" class="form-group" action="generar_orden.php">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <select class="custom-select" name="nombre[]">
+                                            <?php
+                                                while ($valoresNombre = mysqli_fetch_array($resNombre)) {
+                                                echo '<option value="'.$valoresNombre[id_cliente].'">'.$valoresNombre[nombre].'</option>';
+                                                 }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <select class="custom-select" name="id_compra[]">
+                                            <?php
+                                                while ($valoresCompra = mysqli_fetch_array($resCompra)) {
+                                                echo '<option value="'.$valoreCompra[id_compra].'">'.$valoresCompra[compra].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <select class="custom-select" name="id_estado[]">
+                                            <?php
+                                                while ($valoresEstado = mysqli_fetch_array($resEstado)) {
+                                                echo '<option value="'.$valorEestado[id_estado].'">'.$valoresEstado[estado].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <select class="custom-select" name="id_Proceso[]">
+                                            <?php
+                                                while ($valoresProceso = mysqli_fetch_array($resProceso)) {
+                                                echo '<option value="'.$valorEProceso[id_proceso].'">'.$valoresProceso[proceso].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Crear" class="btn float-right btn-outline-secondary btn-sm text-white" name="crear_cliente">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    <!-- CARD2 -->
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="post" class="form-group" action="generar_orden.php">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <select class="custom-select" name="nombre[]">
+                                            <?php
+                                                while ($valoresNombre = mysqli_fetch_array($resNombre)) {
+                                                echo '<option value="'.$valoresNombre[id_cliente].'">'.$valoresNombre[nombre].'</option>';
+                                                 }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <select class="custom-select" name="id_producto[]">
+                                            <?php
+                                                while ($valoresProducto = mysqli_fetch_array($resProducto)) {
+                                                echo '<option value="'.$valoresProducto[id_orden].'">'.$valoresProducto[id_producto].'</option>';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="email" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Crear" class="btn float-right btn-outline-secondary btn-sm text-white" name="crear_cliente">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- CARD -->
+                    </div> <!-- aligncard -->
+                    
+
+
+
 
                     <div class="conta-form col-sm-12 pb-3 col-center">
                         <div class="row">
                             <div>
                                 <form method="post" class="form-group">
                                     <h3 class="text-center pad-basic no-btm">Crear orden</h3>
-                                    <select class="custom-select" name="nombre[]">
-                                        <?php
-                                    while ($valoresNombre = mysqli_fetch_array($resNombre)) {
-                                        echo '<option value="'.$valoresNombre[id_cliente].'">'.$valoresNombre[nombre].'</option>';
-                                    }
-                                        ?>
-                                    </select>
-                                    <select class="custom-select" name="tipo_prenda[]">
-                                        <?php
-                                    while ($valoresCompra = mysqli_fetch_array($resCompra)) {
-                                        echo '<option value="'.$valoresCompra[id_compra].'">'.$valoresCompra[compra].'</option>';
-                                    }
-                                        ?>
-                                    </select>
+
                                     <table class="table table-sm" id="tabla">
                                         <tr class="row col-sm-12">
                                             <td>
@@ -141,16 +239,8 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -65,20 +65,39 @@
                             </div>
                         </div>
                     </nav>
-
-                    <div class="conta-form col-sm-12">
-                        <div class="row">
-                            <form method="post" class="form-group" action="generar_orden.php">
-                                 <div class="input-group pt-3 justify-content-center"> 
-                                    <input class="form-control input-goup-text" type="text" name="nombre" placeholder="Nombre">
-                                    <input class="form-control input-goup-text" type="text" name="apellidos" placeholder="Apellidos">
-                                    <input class="form-control input-goup-text" type="text" name="email" placeholder="Correo">
-                                    <input class="btn btn-outline-secondary btn-sm text-white pl-2" type="submit" value="Crear" name="crear_cliente">
-                                </div>
-                            </form>
+                    
+                    <div class="d-flex justify-content-center h-35">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="post" class="form-group" action="generar_orden.php">
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                    <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+                                
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="email" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Crear" class="btn float-right btn-outline-secondary btn-sm text-white" name="crear_cliente">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
 
+
+                    </div>    
                 </div> <!-- CONTAINER -->
             </div> <!-- BACKGROUND OVERLAY -->
         </div> <!-- MAIN HEADER -->
