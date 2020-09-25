@@ -15,6 +15,7 @@ body{
     background-size: cover;
     min-height: 600px;
     height: 100vh;
+    background-attachment: fixed;
 }
 
 .background-overlay{
@@ -24,13 +25,14 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
+    background-repeat: repeat !important;
 }
 
 .form-control, .btn {
     border-radius: 0;
 }
 
-.conta-form input {
+.conta-form input, #adicional {
     border-radius: 5px;
 }
 
@@ -50,4 +52,23 @@ body{
 
 .card span {
     background-color: rgba(0, 0, 0, 0.5);
+}
+.row {
+    flex-wrap: nowrap;
+}
+
+.sel-f{
+    font-size: 14px;
+}
+
+.alinea{
+    display: flex;
+}
+
+.tam-c {
+    width: 15rem;
+}
+
+#inp-canti{
+    width: 100px;
 }
