@@ -26,14 +26,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proceso Produccion</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="cdn/bootstrap/css/bootstrap.min.css">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <!-- CUSTOME CSS -->
     <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
 </head>
 
 <body>
@@ -78,17 +77,18 @@
                             </div>
                         </div>
                     </nav>
-                    <!-- ============================= CARDS  =============================== -->
-                    <div class="alinarcard">
-                    <div class="d-flex justify-content-around h-35">
-                        <div class="card">
+                    <!-- ============================= CARD & TABLE  =============================== -->
+                    <div class="alinea justify-content-center">
+                    <div class="h-35">
+                        <div class="card tam-c">
                             <div class="card-body">
+                                <h3 class="card-title text-center">Order</h3>
                                 <form method="post" class="form-group" action="generar_orden.php">
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <select class="custom-select" name="nombre[]">
+                                        <select class="custom-select sel-f" name="nombre[]">
                                             <?php
                                                 while ($valoresNombre = mysqli_fetch_array($resNombre)) {
                                                 echo '<option value="'.$valoresNombre[id_cliente].'">'.$valoresNombre[nombre].'</option>';
@@ -98,9 +98,9 @@
                                     </div>
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <span class="input-group-text"><i class="fas fa-shopping-bag"></i></span>
                                         </div>
-                                        <select class="custom-select" name="id_compra[]">
+                                        <select class="custom-select sel-f" name="id_compra[]">
                                             <?php
                                                 while ($valoresCompra = mysqli_fetch_array($resCompra)) {
                                                 echo '<option value="'.$valoreCompra[id_compra].'">'.$valoresCompra[compra].'</option>';
@@ -110,21 +110,9 @@
                                     </div>
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <span class="input-group-text"><i class="fas fa-exchange-alt"></i></span>
                                         </div>
-                                        <select class="custom-select" name="id_estado[]">
-                                            <?php
-                                                while ($valoresEstado = mysqli_fetch_array($resEstado)) {
-                                                echo '<option value="'.$valorEestado[id_estado].'">'.$valoresEstado[estado].'</option>';
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                        </div>
-                                        <select class="custom-select" name="id_Proceso[]">
+                                        <select class="custom-select sel-f" name="id_Proceso[]">
                                             <?php
                                                 while ($valoresProceso = mysqli_fetch_array($resProceso)) {
                                                 echo '<option value="'.$valorEProceso[id_proceso].'">'.$valoresProceso[proceso].'</option>';
@@ -132,46 +120,17 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="submit" value="Crear" class="btn float-right btn-outline-secondary btn-sm text-white" name="crear_cliente">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    <!-- CARD2 -->
-                        <div class="card">
-                            <div class="card-body">
-                                <form method="post" class="form-group" action="generar_orden.php">
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <span class="input-group-text"><i class="fas fa-shipping-fast"></i></span>
                                         </div>
-                                        <select class="custom-select" name="nombre[]">
+                                        <select class="custom-select sel-f" name="id_estado[]">
                                             <?php
-                                                while ($valoresNombre = mysqli_fetch_array($resNombre)) {
-                                                echo '<option value="'.$valoresNombre[id_cliente].'">'.$valoresNombre[nombre].'</option>';
-                                                 }
-                                            ?>
-                                        </select>
-                                    </div>
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                        </div>
-                                        <select class="custom-select" name="id_producto[]">
-                                            <?php
-                                                while ($valoresProducto = mysqli_fetch_array($resProducto)) {
-                                                echo '<option value="'.$valoresProducto[id_orden].'">'.$valoresProducto[id_producto].'</option>';
+                                                while ($valoresEstado = mysqli_fetch_array($resEstado)) {
+                                                echo '<option value="'.$valorEestado[id_estado].'">'.$valoresEstado[estado].'</option>';
                                                 }
                                             ?>
                                         </select>
-                                    </div>
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="email" name="email">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Crear" class="btn float-right btn-outline-secondary btn-sm text-white" name="crear_cliente">
@@ -180,22 +139,27 @@
                             </div>
                         </div>
                     </div> <!-- CARD -->
-                    </div> <!-- aligncard -->
                     
-
-
-
-
-                    <div class="conta-form col-sm-12 pb-3 col-center">
+                    
+                    <!-- TABLE -->
+                    <div class="conta-form col-sm-6 pl-5 pb-3 col-center">
                         <div class="row">
-                            <div>
                                 <form method="post" class="form-group">
-                                    <h3 class="text-center pad-basic no-btm">Crear orden</h3>
+                                    <h3 class="text-center pad-basic no-btm">Productos</h3>
 
                                     <table class="table table-sm" id="tabla">
                                         <tr class="row col-sm-12">
                                             <td>
-                                                <select class="custom-select" name="diseno[]" id="inputgroup1">
+                                                <select class="custom-select sel-f" name="prenda[]" id="inputgroup2">
+                                                    <?php
+                                                         while ($valoresTipo_prenda = mysqli_fetch_array($resTipo_prenda)) {
+                                                            echo '<option value="'.$valoresTipo_prenda[id_prenda].'">'.$valoresTipo_prenda[prenda].'</option>';
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="custom-select sel-f" name="diseno[]" id="inputgroup1">
                                                 <?php
                                                     while ($valoresDiseno = mysqli_fetch_array($resDiseno)) {
                                                         echo '<option value="'.$valoresDiseno[id_diseno].'">'.$valoresDiseno[diseno].'</option>';
@@ -204,21 +168,11 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <select class="custom-select" name="tipo_prenda[]" id="inputgroup2">
-                                                    <?php
-                                                while ($valoresTipo_prenda = mysqli_fetch_array($resTipo_prenda)) {
-                                                    echo '<option value="'.$valoresTipo_prenda[id_prenda].'">'.$valoresTipo_prenda[tipo_prenda].'</option>';
-                                                }
-                                            ?>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input required class="form-control input-goup-text" name="cantidad[]"
-                                                    placeholder="Cantidad" />
+                                                <input required class="form-control input-goup-text sel-f" id="inp-canti" name="cantidad[]"
+                                                    placeholder="Cantidad"/>
                                             </td>
                                             <td class="eliminar">
-                                                <input type="button" class="btn btn-outline-secondary btn-sm text-white"
-                                                    value="x" />
+                                                <input type="button" class="btn btn-outline-secondary btn-sm text-white" value="x"/>
                                             </td>
                                         </tr>
                                     </table>
@@ -226,12 +180,12 @@
                                         <input type="submit" name="insertar" value="Generar Orden"
                                             class="btn btn-outline-secondary btn-sm text-white" />
                                         <button id="adicional" name="adicional" type="button"
-                                            class="btn btn-outline-secondary btn-sm text-white"> Más + </button>
+                                            class="btn btn-outline-secondary btn-sm text-white">Más +</button>
                                     </div>
                                 </form>
-                            </div>
                         </div>
-                    </div>
+                    </div> <!-- TABLE -->
+                    </div>  <!-- ALINEA-->
                     
                 </div>
             </div>
@@ -239,8 +193,14 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="cdn/jquery/jquery-3.3.1.min.js"></script>
+    <script src="cdn/popper/popper.min.js"></script>
+    <script src="cdn/bootstrap/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <!-- bootstrap -->
+
+    <!-- datatables -->
+    <script type="text/javascript" src="cdn/datatables/datatables.min.js"></script>
 </body>
 </html>
