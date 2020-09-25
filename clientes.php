@@ -81,7 +81,7 @@
                                         echo'<tr>
                                         <td>'.$registroCliente['nombre'].'</td>
                                         <td>'.$registroCliente['apellidos'].'</td>
-                                        <td>'.$registroCliente['correo'].'</td>
+                                        <td>'.$registroCliente['email'].'</td>
                                         </tr>';
                                     }
                                 ?>
